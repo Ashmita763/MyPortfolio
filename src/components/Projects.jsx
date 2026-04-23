@@ -92,7 +92,7 @@ const Projects = () => {
               Explore my work on GitHub for a closer look at what I've built.
             </p>
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Ashmita763/MyPortfolio"
               target="_blank"
               rel="noopener noreferrer"
               className="px-6 py-3 bg-purple-600 hover:bg-purple-700 rounded-lg text-white transition"
