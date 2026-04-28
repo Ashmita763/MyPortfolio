@@ -7,7 +7,7 @@ const projects = [
     title: 'Restaurant Dining Reservation System',
     icon: FaUtensils,
     desc: 'A system to manage tables, orders, and reservations.',
-    tech: 'HTML, CSS, Laravel, MySQL',
+    tech: 'HTML, CSS, php, MySQL',
     year: '2024',
   },
   {
@@ -21,7 +21,7 @@ const projects = [
     title: 'Portfolio Website',
     icon: FaUser,
     desc: 'Personal portfolio to showcase skills and projects.',
-    tech: 'React, Tailwind CSS',
+    tech: 'React, Tailwind CSS, Framer motion',
     year: '2025',
   },
 ]
@@ -34,7 +34,7 @@ const Projects = () => {
       transition={{ duration: 1, ease: 'easeOut' }}
       viewport={{ once: false, amount: 0.2 }}
       id="projects"
-      className='py-20 bg-gray-900'
+      className='py-20 bg-gray-950'
     >
       <div className="container mx-auto px-6">
 

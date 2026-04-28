@@ -10,9 +10,8 @@ const Navbar = () => {
     <div className='container mx-auto flex justify-between items-center'>
       <div>
         <a href='#' className='text-3xl font-bold text-white'>
-          Ashmita
-          <span className='text-purple-500'>Basnet</span>
-          <div className='w-4 h-4 bg-purple-500 rounded-full'></div>
+          Ashmita<span className='text-purple-500'>Basnet</span>
+        
           </a>
       </div>
       <div className='hidden md:flex space-x-10'>
@@ -83,7 +82,7 @@ const Navbar = () => {
           <span>Experience</span>
           
         </a>
-        <a href='#cotact' className='group relative text-white transition duration-300 hover:text-purple-500'>
+        <a href='#contact' className='group relative text-white transition duration-300 hover:text-purple-500'>
           <span>Contact</span>
           
         </a>

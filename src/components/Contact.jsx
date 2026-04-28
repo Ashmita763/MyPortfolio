@@ -2,14 +2,36 @@ import { motion } from "framer-motion";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
+const container = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      staggerChildren: 0.15,
+    },
+  },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 20 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" },
+  },
+};
+
 const Contact = () => {
   return (
     <motion.section
       id="contact"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
-      viewport={{ once: false, amount: 0.2 }}
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
       className="py-20 bg-gray-900 text-white flex flex-col items-center justify-center px-6"
     >
       {/* Heading */}
@@ -26,9 +48,9 @@ const Contact = () => {
 
         {/* LinkedIn */}
         <motion.a
-          href="https://linkedin.com/in/your-profile"
+          variants={item}
+          href="https://www.linkedin.com/in/ashmita-basnet-880402231/"
           target="_blank"
-          whileHover={{ y: -6 }}
           className="group bg-gray-800 border border-gray-700 rounded-2xl p-6 
           flex flex-col items-center gap-4 cursor-pointer
           hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10 transition"
@@ -41,9 +63,9 @@ const Contact = () => {
 
         {/* GitHub */}
         <motion.a
-          href="https://github.com/your-username"
+          variants={item}
+          href="https://github.com/Ashmita763/"
           target="_blank"
-          whileHover={{ y: -6 }}
           className="group bg-gray-800 border border-gray-700 rounded-2xl p-6 
           flex flex-col items-center gap-4 cursor-pointer
           hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10 transition"
@@ -56,8 +78,8 @@ const Contact = () => {
 
         {/* Email */}
         <motion.a
-          href="mailto:your@email.com"
-          whileHover={{ y: -6 }}
+          variants={item}
+          href="mailto:ashmitabasnetashu@gmail.com"
           className="group bg-gray-800 border border-gray-700 rounded-2xl p-6 
           flex flex-col items-center gap-4 cursor-pointer
           hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10 transition"
@@ -69,8 +91,6 @@ const Contact = () => {
         </motion.a>
 
       </div>
-
-    
     </motion.section>
   );
 };

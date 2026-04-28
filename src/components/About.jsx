@@ -24,7 +24,7 @@ const About = () => {
       transition={{ duration: 0.6, ease: 'easeOut' }}
       viewport={{ once: true }}
       id='about'
-      className='py-20 bg-gray-950 text-white'
+      className='py-20 bg-gray-900 text-white'
     >
       <div className='container mx-auto px-6'>
 
@@ -33,7 +33,7 @@ const About = () => {
         </h2>
 
         <p className='text-gray-400 text-center max-w-2xl mx-auto mb-16'>
-          Get to know about my background
+          Get to know about me
         </p>
 
         <div className='flex flex-col md:flex-row items-center gap-12'>
@@ -55,16 +55,17 @@ const About = () => {
 
             <div className='rounded-2xl p-8'>
 
-              <h3 className='text-2xl font-semibold mb-6'>
-                My Journey
+              <h3 className='text-2xl font-semibold mb-6 text-purple-500'>
+                About me
               </h3>
 
               <p className='text-gray-300 mb-6'>
-                I am a passionate frontend developer creating visually appealing web designs.
-              </p>
+                I am Ashmita Basnet, a passionate frontend developer focused on building modern, responsive, and user-friendly web applications 
+                              </p>
 
               <p className='text-gray-300 mb-12'>
-                When I am not coding I explore new technologies.
+               Currently, I am focused on strengthening my frontend development skills and exploring advanced concepts in React and modern web development
+
               </p>
 
               {/* CARDS */}

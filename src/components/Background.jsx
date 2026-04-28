@@ -1,11 +1,22 @@
+import React from "react"
 import { motion } from "framer-motion"
 import profileImg from "../assets/profileImg.png"
 
+const educationData = [
+  { title: "SEE", place: "Times Academy" },
+  { title: "+2 Science", place: "National School of Sciences" },
+  { title: "BSc (Hons) Computer Science", place: "Herald College Kathmandu" },
+]
+
 const Background = () => {
   return (
-    <section
+    <motion.section
       id="background"
-      className="min-h-screen flex items-center justify-center px-6 bg-black text-white"
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.8, ease: "easeOut" }}
+      viewport={{ once: false, amount: 0.2 }}
+      className="min-h-screen flex items-center justify-center px-6 bg-gray-950 text-white"
     >
       <div className="flex flex-col md:flex-row items-center justify-center gap-20 max-w-6xl w-full">
 
@@ -18,7 +29,7 @@ const Background = () => {
             initial={{ x: -80, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
           >
             EDUCATION
           </motion.h2>
@@ -28,36 +39,37 @@ const Background = () => {
             className="flex flex-col items-center md:items-start gap-8 w-full"
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             variants={{
+              hidden: {},
               visible: {
-                transition: { staggerChildren: 0.25 },
+                transition: {
+                  staggerChildren: 0.2,
+                },
               },
             }}
           >
-
-            {[
-              { title: "SEE", place: "Times Academy" },
-              { title: "+2 Science", place: "National School of Sciences" },
-              { title: "Bachelor's in Computing", place: "Herald College Kathmandu" },
-            ].map((item, index) => (
+            {educationData.map((item, index) => (
               <motion.div
                 key={index}
                 variants={{
                   hidden: { x: -40, opacity: 0 },
                   visible: { x: 0, opacity: 1 },
                 }}
-                className="w-full md:w-[350px] border border-purple-500/40 bg-gray-900/40 backdrop-blur-md p-5 rounded-xl text-center md:text-left hover:border-purple-500 hover:shadow-lg transition duration-300"
+                whileHover={{ y: -6 }}
+                transition={{ type: "spring", stiffness: 200 }}
+                className="w-full md:w-[350px] border border-purple-500/40 bg-gray-800 rounded-2xl p-6 
+                hover:border-purple-500 hover:shadow-lg hover:shadow-purple-500/10 
+                transition duration-300 cursor-pointer"
               >
                 <h3 className="text-purple-400 font-semibold text-lg">
                   {item.title}
                 </h3>
-                <p className="text-gray-300 text-sm mt-1">
+                <p className="text-gray-400 text-sm mt-1">
                   {item.place}
                 </p>
               </motion.div>
             ))}
-
           </motion.div>
 
         </div>
@@ -68,7 +80,7 @@ const Background = () => {
           initial={{ x: 80, opacity: 0, scale: 0.8 }}
           whileInView={{ x: 0, opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
         >
           {/* Glow */}
           <div className="absolute inset-0 bg-purple-600 blur-3xl opacity-20 rounded-full"></div>
@@ -81,7 +93,7 @@ const Background = () => {
         </motion.div>
 
       </div>
-    </section>
+    </motion.section>
   )
 }
 

@@ -1,17 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import { FaReact, FaNodeJs, FaGitAlt, FaPython } from 'react-icons/fa'
-import { SiMongodb, SiTailwindcss, SiDjango, SiPostgresql } from 'react-icons/si'
+import { FaReact, FaNodeJs, FaGitAlt } from 'react-icons/fa'
+import { SiMongodb, SiTailwindcss } from 'react-icons/si'
 
 const skills = [
   { title: 'React', icon: FaReact, desc: 'Frontend Library' },
   { title: 'Node.js', icon: FaNodeJs, desc: 'Backend Runtime' },
   { title: 'Git', icon: FaGitAlt, desc: 'Version Control' },
-  { title: 'Python', icon: FaPython, desc: 'Programming Language' },
   { title: 'MongoDB', icon: SiMongodb, desc: 'Database' },
   { title: 'Tailwind', icon: SiTailwindcss, desc: 'CSS Framework' },
-  { title: 'Django', icon: SiDjango, desc: 'Backend Framework' },
-  { title: 'PostgreSQL', icon: SiPostgresql, desc: 'Database' },
 ]
 
 const Skills = () => {
