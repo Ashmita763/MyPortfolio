@@ -1,81 +1,89 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import profileImg from '../assets/profileImg.png';
-import cv from '../assets/AshmitaCV.pdf';
+import React from "react";
+import { motion } from "framer-motion";
+import profileImg from "../assets/profileImg.png";
+import cv from "../assets/AshmitaCV.pdf";
 
 const Hero = () => {
   return (
-    <motion.div
+    <motion.section
+      id="home"
       initial={{ opacity: 0, y: 50 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
       viewport={{ once: true }}
-      id="home"
-      className="min-h-screen flex items-center pt-20 pb-16 bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a]"
+      className="min-h-screen flex items-center bg-gradient-to-r from-[#1a1a1a] via-[#2d2d2d] to-[#1a1a1a] pt-24 pb-16 scroll-mt-20"
     >
-      <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+      <div className="max-w-7xl mx-auto w-full px-5 sm:px-8">
 
-        {/* LEFT SIDE */}
-        <div className="md:w-1/2 mb-10 md:mb-0">
-          <h1 className="text-4xl md:text-6xl font-bold text-white">
-            Hi, I am <span className="text-purple-500">Ashmita Basnet</span>
-          </h1>
+        <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-12">
 
-          <h2 className="text-2xl md:text-4xl font-semibold mb-6 text-gray-200">
-            Frontend Developer
-          </h2>
+          {/* LEFT CONTENT */}
+          <div className="w-full lg:w-1/2 text-center lg:text-left">
 
-          <p className="text-gray-300 mb-8">
-            I create visually appealing and modern web applications using React and JavaScript.
-          </p>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white">
+              Hi, I am{" "}
+              <span className="text-purple-500">
+                Ashmita Basnet
+              </span>
+            </h1>
 
-          <div className="flex space-x-5">
+            <h2 className="mt-4 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-200">
+              Frontend Developer
+            </h2>
 
-            {/* CV DOWNLOAD */}
-            <a
-              href={cv}
-              download="AshmitaCV.pdf"
-              className="px-6 py-3 bg-purple-500 rounded-lg font-medium hover:bg-purple-700 transition duration-300"
-            >
-              Download CV
-            </a>
+            <p className="mt-6 text-gray-300 text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
+              I create visually appealing and modern web applications using
+              React and JavaScript.
+            </p>
 
-            {/* CONTACT */}
-            <a
-              href="#contact"
-              className="px-6 py-3 border border-purple-500 rounded-lg font-medium hover:bg-purple-500 transition duration-300"
-            >
-              Contact Me
-            </a>
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
 
-          </div>
-        </div>
+              <a
+                href={cv}
+                download="AshmitaCV.pdf"
+                className="px-6 py-3 bg-purple-500 rounded-lg font-medium text-white hover:bg-purple-700 transition text-center"
+              >
+                Download CV
+              </a>
 
-        {/* RIGHT SIDE */}
-        <div className="md:w-1/2 flex justify-center">
-          <div className="relative w-64 h-64 md:w-80 md:h-80">
+              <a
+                href="#contact"
+                className="px-6 py-3 border border-purple-500 rounded-lg font-medium text-white hover:bg-purple-500 transition text-center"
+              >
+                Contact Me
+              </a>
 
-            {/* glowing background */}
-            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-70"></div>
-
-            {/* image animation */}
-            <motion.img
-              src={profileImg}
-              alt="Profile"
-              animate={{ y: [0, -20, 0] }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: 'easeInOut'
-              }}
-              className="relative rounded-full w-full h-full object-cover z-10"
-            />
+            </div>
 
           </div>
+
+          {/* RIGHT IMAGE */}
+          <div className="w-full lg:w-1/2 flex justify-center">
+
+            <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-80 md:h-80">
+
+              <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 opacity-70 blur-lg"></div>
+
+              <motion.img
+                src={profileImg}
+                alt="Profile"
+                animate={{ y: [0, -15, 0] }}
+                transition={{
+                  duration: 4,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                }}
+                className="relative w-full h-full rounded-full object-cover z-10"
+              />
+
+            </div>
+
+          </div>
+
         </div>
 
       </div>
-    </motion.div>
+    </motion.section>
   );
 };
 

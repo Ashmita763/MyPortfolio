@@ -1,96 +1,85 @@
-import React, { useState } from 'react'
-import { FaBars } from 'react-icons/fa'
-import { FaXmark } from 'react-icons/fa6'
+import React, { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import { FaXmark } from "react-icons/fa6";
 
 const Navbar = () => {
+  const [showMenu, setShowMenu] = useState(false);
 
-  const [showMenu, setShowMenu] =useState(false);
+  const navLinks = [
+    { name: "Home", id: "home" },
+    { name: "About", id: "about" },
+    { name: "Education", id: "background" },
+    { name: "Skills", id: "skills" },
+    { name: "Projects", id: "projects" },
+    { name: "Contact", id: "contact" },
+  ];
+
+  const closeMenu = () => setShowMenu(false);
+
   return (
-   <nav className='fixed w-full bg-black/90 backdrop-blur-sm z-50 py-4 px-8 shadow-lg'>
-    <div className='container mx-auto flex justify-between items-center'>
-      <div>
-        <a href='#' className='text-3xl font-bold text-white'>
-          Ashmita<span className='text-purple-500'>Basnet</span>
-        
+    <nav className="fixed top-0 left-0 w-full bg-black/90 backdrop-blur-md shadow-lg z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        <div className="h-16 flex items-center justify-between">
+
+          {/* Logo */}
+          <a
+            href="#home"
+            onClick={closeMenu}
+            className="text-lg sm:text-2xl md:text-3xl font-bold text-white whitespace-nowrap"
+          >
+            Ashmita<span className="text-purple-500">Basnet</span>
           </a>
-      </div>
-      <div className='hidden md:flex space-x-10'>
-        <a href='#' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Home</span>
-          <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full'></span>
-        </a>
 
-        <a href='#about' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>About</span>
-          <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full'></span>
-        </a>
-        <a href='#background' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Background</span>
-          <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full'></span>
-        </a>
-        <a href='#skills' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Skills</span>
-          <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full'></span>
-        </a>
-        <a href='#projects' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Projects</span>
-          <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full'></span>
-        </a>
-        <a href='#contact' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Contact</span>
-          <span className='absolute left-0 -bottom-1 w-0 h-0.5 bg-purple-500 transition-all duration-300 group-hover:w-full'></span>
-        </a>
-        
-      </div>
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                className="relative group text-white hover:text-purple-500 transition duration-300"
+              >
+                {link.name}
 
-      {/* Mobile button */}
+                <span className="absolute left-0 -bottom-1 h-0.5 w-0 bg-purple-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
+          </div>
 
-    <div className='md:hidden'>
-      {
-        showMenu ?
-        <FaXmark onClick={()=>setShowMenu(!showMenu)} className='text-2xl cursor-pointer'/> :
-        <FaBars  onClick={()=>setShowMenu(!showMenu)} className='text-2xl cursor--pointer'/>
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setShowMenu(!showMenu)}
+            className="md:hidden text-white text-2xl"
+          >
+            {showMenu ? <FaXmark /> : <FaBars />}
+          </button>
 
-      }
-      
-      
-    </div>
-    </div>
-    
-    {/*MObile menus */}
-    {
-      showMenu && (
-        <div className='md:hidden mt-4 bg-gray-600 h-screen rounded-lg p-4 flex flex-col space-y-4 text-center justify-center'>
-                <a href='#home' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Home</span>
-          
-        </a>
-
-        <a href='#about' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>About</span>
-          
-        </a>
-        <a href='#education' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Education</span>
-         
-        </a>
-        <a href='#skills' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Skills</span>
-          
-        </a>
-        <a href='#experience' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Experience</span>
-          
-        </a>
-        <a href='#contact' className='group relative text-white transition duration-300 hover:text-purple-500'>
-          <span>Contact</span>
-          
-        </a>
         </div>
-      )
-    }
-   </nav>
-  )
-}
+      </div>
 
-export default Navbar
+      {/* Mobile Menu */}
+      <div
+        className={`md:hidden transition-all duration-300 ease-in-out overflow-hidden ${
+          showMenu ? "max-h-[500px]" : "max-h-0"
+        }`}
+      >
+        <div className="bg-gray-900 border-t border-gray-700 flex flex-col">
+
+          {navLinks.map((link) => (
+            <a
+              key={link.id}
+              href={`#${link.id}`}
+              onClick={closeMenu}
+              className="py-4 text-center text-white text-lg hover:bg-purple-600 transition duration-300"
+            >
+              {link.name}
+            </a>
+          ))}
+
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+export default Navbar;
